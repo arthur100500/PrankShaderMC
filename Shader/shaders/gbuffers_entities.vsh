@@ -5,7 +5,7 @@
 #version 330 // This will always get moved to the top of the code in pre-processing.
 #define GREEN_SELECTION // Selects people in color 0 255 51 if they are hitable
 
-const int debile = 1; // debile debile 1 [-1, 0, 1]
+const int esp = 1;
 
 varying vec4 texcoord;
 varying vec4 color;
@@ -40,13 +40,8 @@ void main() {
 	position.z = position.z / espvar;
 	}
 	close_enough = vec3(0.0, 0.0, 0.0);
-	#ifdef WAVING_WATER
-		if (espvar < multiplier * 0.300){
-			close_enough = vec3(1.0, 0.0, 0.0);
-		}
-	#endif
 	
-	if (debile == 1){
+	if (esp == 1){
 		if (espvar < multiplier * 0.270){
 			close_enough = vec3(1.0, 0.0, 0.0);
 		}
